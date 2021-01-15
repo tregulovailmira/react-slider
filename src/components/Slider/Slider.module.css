@@ -1,0 +1,13 @@
+.sliderWrapper {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  background-color: #000000;
+  padding: 0 10px;
+  height: inherit;
+}
+
+.fullscreenOff {
+  max-width: 1200px;
+  height: 80vh;
+}

@@ -1,0 +1,37 @@
+.absolute {
+  z-index: 100;
+  position: absolute;
+  cursor: pointer;
+}
+
+.timeInterval {
+  top: 50px;
+  transition: opacity 1s ease;
+  opacity: 1;
+}
+
+.inputHide {
+  opacity: 0;
+}
+
+.sliderControls {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  transition: opacity 1s ease;
+  right: 10%;
+  width: 80%;
+  opacity: 1;
+}
+
+.fullscreenOffControlls {
+  bottom: 181px;
+}
+
+.fullscreenControlls {
+  bottom: 0;
+}
+
+.hideControls {
+  opacity: 0;
+}

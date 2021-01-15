@@ -1,0 +1,7 @@
+.control {
+  background: rgba(150, 150, 150, 0.6);
+}
+
+.control:hover {
+  background: rgba(100, 100, 100, 0.6);
+}

@@ -8,6 +8,8 @@ import {
   mdiFullscreen,
   mdiFullscreenExit,
 } from '@mdi/js';
+import styles from './SliderControls.module.css';
+import cx from 'classnames';
 
 const SliderControls = (props) => {
   const {
@@ -19,12 +21,28 @@ const SliderControls = (props) => {
     stopSlider,
     getNextIndex,
     getPrevIndex,
-    changeFullScreen,
+    fullscreenHandle,
+    slylesClasses,
+    isShowControls,
   } = props;
 
   const changeIntervalTime = (event) => {
     changeInterval(event.target.value);
   };
+
+  const inputStyles = cx(styles.timeInterval, styles.absolute, {
+    [styles.inputHide]: !isShowControls,
+  });
+  const controlStyles = cx(
+    styles.sliderControls,
+    styles.absolute,
+    slylesClasses,
+    {
+      [styles.hideControls]: !isShowControls,
+      [styles.fullscreenOffControlls]: !isFullscreen,
+      [styles.fullscreenControlls]: isFullscreen,
+    }
+  );
   return (
     <>
       <input
@@ -33,8 +51,9 @@ const SliderControls = (props) => {
         onChange={changeIntervalTime}
         min={500}
         max={10000}
+        className={inputStyles}
       />
-      <div>
+      <div className={controlStyles}>
         <Control path={mdiArrowLeftBold} onClick={getPrevIndex} />
         <Control
           path={isPlaying ? mdiStop : mdiPlay}
@@ -43,7 +62,7 @@ const SliderControls = (props) => {
         <Control path={mdiArrowRightBold} onClick={getNextIndex} />
         <Control
           path={isFullscreen ? mdiFullscreenExit : mdiFullscreen}
-          onClick={changeFullScreen}
+          onClick={fullscreenHandle}
         />
       </div>
     </>
